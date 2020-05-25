@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetPlugin = require('optimize-css-assets-webpack-plugin')
 const TercerWebpackPlugin = require('terser-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const webpack = require('webpack');
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -67,11 +68,11 @@ return loaders
 module.exports = {
     mode: 'development',
     entry: {
-        main:['@babel/polyfill', './src/index.jsx']}, 
+        main: ['@babel/polyfill', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './src/index.jsx'] }, 
     output: {
         filename: name('js'),
-        path: path.resolve(__dirname, 'build'),
-  
+        path: path.join(__dirname, './build'),
+        publicPath: '/'    
     },
     optimization: optimization(),
     plugins: [
@@ -92,7 +93,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: name('css')
         }),
-    
+        new webpack.HotModuleReplacementPlugin(),    
     ],
     devServer: {
         hot: isDev

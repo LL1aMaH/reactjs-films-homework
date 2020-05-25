@@ -1,22 +1,21 @@
-import './styles.css' 
-import logo from './logo.jpg' 
-import './style.scss'
-import './babel.js'
 import React from 'react'
 import {render} from 'react-dom'
+import logo from './logo.jpg' 
+import './style.scss'
+
 
 alert ('А я знаю как ты ненавидишь alert\'ы')
 
 const App = () => (
   <div>
-    <div class="container">
+    <div className="container">
         <h1>Homework</h1>
     </div>
-    <div class="container">part 1</div>
+    <div className="container">part 1</div>
       
-    <div class="logo" />
+    <div className="logo" />
 
-    <div class="box">
+    <div className="box">
         <h2>scss</h2>
     </div>
   </div>  
@@ -25,8 +24,5 @@ const App = () => (
 render(<App />, document.getElementById('App'))
 
 if (module.hot) {
-       module.hot.accept('./print.js', function() {
-         console.log('Accepting the updated printMe module!');
-         printMe();
-       })
-     }
+  module.hot.accept();
+}

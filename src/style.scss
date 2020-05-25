@@ -9,5 +9,25 @@ $border: 1px solid #ccc;
 
 h2 {
     text-align: center;
-    color: green;
+    color: red;
 }
+
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+.container {
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+  }
+  
+.logo {
+    background-image: url('./logo.jpg');
+    background-size: cover;
+    height: 400px;
+    width: 400px;
+    margin: 0 auto;
+  }
+  
