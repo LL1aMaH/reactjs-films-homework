@@ -42,10 +42,10 @@ const cssLoader = ext => {
 module.exports = {
     mode: 'development',
     entry: {
-        main: ['@babel/polyfill', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', '../../src/index.jsx'] }, 
+        main: ['@babel/polyfill', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './src/index.jsx'] }, 
     output: {
-        filename: name('js'),
-        path: path.join(__dirname, '../../build'),
+        filename: `js/${name('js')}`,
+        path: path.resolve(__dirname, '../../build/'),
         publicPath: '/'
     },
     optimization: optimization(),
@@ -61,17 +61,13 @@ module.exports = {
             patterns: [
               { from: path.resolve(__dirname, '../../src/favicon.ico'), 
                 to: path.resolve(__dirname, '../../build')}
-             
             ],
           }),
         new MiniCssExtractPlugin({
-            filename: name('css')
+            filename: `css/${name('css')}`
         }),
         new webpack.HotModuleReplacementPlugin(),    
     ],
-    devServer: {
-        hot: isDev
-    },
     module: {
         rules: [
             {
