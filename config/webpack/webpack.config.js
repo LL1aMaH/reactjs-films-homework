@@ -39,45 +39,19 @@ const cssLoader = ext => {
     return loader 
 }
 
-const babelLoader = ext => {
-    const loader = {
-        presets: [
-            '@babel/preset-env'
-        ],
-        plugins:[
-            '@babel/plugin-proposal-class-properties'
-        ]
-    }
-
-    if (ext) loader.presets.push(ext)
-
-    return loader
-}
-
-const jsLoader = () => {
-    const loaders = [{
-        loader: 'babel-loader',
-        options: babelLoader()
-    }]
-     
-if (isDev) {loaders.push('eslint-loader')}
- 
-return loaders
-}
-
 module.exports = {
     mode: 'development',
     entry: {
-        main: ['@babel/polyfill', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', './src/index.jsx'] }, 
+        main: ['@babel/polyfill', 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000', '../../src/index.jsx'] }, 
     output: {
         filename: name('js'),
-        path: path.join(__dirname, './build'),
-        publicPath: '/'    
+        path: path.join(__dirname, '../../build'),
+        publicPath: '/'
     },
     optimization: optimization(),
     plugins: [
         new HTMLWebpackPlugin({
-            template: 'index.html',
+            template: path.join(__dirname, '../../index.html'),
             minify: {
                 collapseWhitespace: !isDev
             }
@@ -85,8 +59,8 @@ module.exports = {
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
             patterns: [
-              { from: path.resolve(__dirname, 'src/favicon.ico'), 
-                to: path.resolve(__dirname, 'build')}
+              { from: path.resolve(__dirname, '../../src/favicon.ico'), 
+                to: path.resolve(__dirname, '../../build')}
              
             ],
           }),
@@ -113,16 +87,10 @@ module.exports = {
                 use: ['file-loader']
             },
             { 
-                test: /\.js$/, 
-                exclude: /node_modules/, 
-                use: jsLoader() 
-            },
-            { 
-                test: /\.jsx$/, 
+                test: /\.jsx?$/, 
                 exclude: /node_modules/, 
                 loader: {
-                    loader: 'babel-loader',
-                    options: babelLoader('@babel/preset-react')
+                    loader: 'babel-loader'   
                 } 
             }
         ]
