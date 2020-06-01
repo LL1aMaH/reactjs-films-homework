@@ -8,6 +8,7 @@
     "build": "cross-env NODE_ENV=production npx webpack --mode production",
     "start": "cross-env NODE_ENV=development node server.js --mode development",
     "lint": "npx eslint --max-warnings=0 --ext .jsx,.js src/",
+    "lint:fix": "npx eslint --max-warnings=0 --ext .jsx,.js src/ --fix",
     "prettier": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
     "test": "jest --config ./config/jest/jest.config.js"
   },
@@ -44,7 +45,9 @@
     "express": "^4.17.1",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
+    "husky": "^4.2.5",
     "jest": "^26.0.1",
+    "lint-staged": "^10.2.7",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
@@ -59,5 +62,14 @@
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.2"
+  },
+  "husky": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "npm run lint:fix",
+      "git add"
+    ]
   }
 }

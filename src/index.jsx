@@ -25,3 +25,5 @@ render(<App />, document.getElementById('App'));
 if (module.hot) {
   module.hot.accept();
 }
+
+const a = 1;
