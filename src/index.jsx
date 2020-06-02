@@ -2,21 +2,15 @@ import React from 'react';
 import { render } from 'react-dom';
 
 import './style.scss';
-
-alert("А я знаю как ты ненавидишь alert'ы"); // eslint-disable-line
+import Back from './pages/Back';
 
 const App = () => (
   <div>
     <div className="container">
       <h1>Homework</h1>
     </div>
-    <div className="container">part 1</div>
-
-    <div className="logo" />
-
-    <div className="box">
-      <h2>scss</h2>
-    </div>
+    <div className="container">part 2</div>
+    <Back />
   </div>
 );
 
