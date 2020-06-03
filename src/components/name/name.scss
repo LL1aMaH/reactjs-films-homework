@@ -1,0 +1,26 @@
+h2 {
+  color: white;
+  font-size: 35px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+span {
+  color: white;
+  font-size: 25px;
+}
+
+.Name {
+  display: flex;
+  flex-direction: column;
+}
+
+.info {
+  display: flex;
+}
+
+.vl {
+  border-left: 2px solid white;
+  margin-left: 10px;
+  margin-right: 10px;
+}
