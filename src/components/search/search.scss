@@ -1,4 +1,4 @@
-.Search {
+.search {
   align-items: center;
 }
 
@@ -18,10 +18,9 @@ input[type='text'] {
   &:focus {
     width: 300px;
   }
-}
-
-::placeholder {
-  color: white;
+  &::placeholder {
+    color: white;
+  }
 }
 
 .icon {

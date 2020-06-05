@@ -1,21 +1,19 @@
-.Button {
-  width: 200px;
-  padding: 8px;
-  color: #fff;
+.button {
   background-color: transparent;
   border: 2px solid #fff;
-  text-align: center;
-  outline: none;
-  text-decoration: none;
-  max-height: 20px;
-  transition: color 0.3s ease-out, background-color 0.3s ease-out,
-    border-color 0.3s ease-out;
-}
-.Button:hover,
-.Button:active {
-  background-color: #00bfff;
-  border-color: #00bfff;
   color: #fff;
-  transition: color 0.3s ease-in, background-color 0.3s ease-in,
-    border-color 0.3s ease-in;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 15px;
+  width: 200px;
+  cursor: pointer;
+  min-height: 30px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  &:hover {
+    background-color: #00bfff;
+    border-color: #00bfff;
+    color: #fff;
+  }
 }

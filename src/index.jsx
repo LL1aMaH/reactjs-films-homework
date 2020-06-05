@@ -1,15 +1,17 @@
 import React from 'react';
 import { render } from 'react-dom';
+import Back from './pages/Back';
 
 import './style.scss';
-import Back from './pages/Back';
 
 const App = () => (
   <div>
     <div className="container">
       <h1>Homework</h1>
     </div>
-    <div className="container">part 2</div>
+    <div className="container">
+      <h1>part 2</h1>
+    </div>
     <Back />
   </div>
 );
