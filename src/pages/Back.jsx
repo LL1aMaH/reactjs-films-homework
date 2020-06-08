@@ -8,6 +8,10 @@ import './Back.scss';
 
 import { nameButton1, nameButton2, dataFilm } from '../config.data'; // data for test
 
+const handleClick = (text) => {
+  alert(`click ${text[text.length - 1]}`);
+};
+
 const Back = () => (
   <div className="background">
     <div className="search-block">
@@ -18,8 +22,8 @@ const Back = () => (
         <Name dataFilm={dataFilm} />
       </div>
       <div className="bottom-button-block">
-        <Button nameButton={nameButton1} />
-        <Button nameButton={nameButton2} />
+        <Button text={nameButton1} onClick={handleClick} />
+        <Button text={nameButton2} onClick={handleClick} />
       </div>
     </div>
   </div>
