@@ -9,6 +9,7 @@ import './Back.scss';
 import { nameButton1, nameButton2, dataFilm } from '../config.data'; // data for test
 
 const handleClick = (text) => {
+  // eslint-disable-next-line no-alert
   alert(`click ${text[text.length - 1]}`);
 };
 
