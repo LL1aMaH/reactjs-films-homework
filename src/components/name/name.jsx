@@ -1,21 +1,36 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './name.scss';
 
-const Name = (props) => {
-  const data = props;
+const Name = ({ dataFilm }) => {
+  // eslint-disable-next-line
+  const { name, genre, time, stars } = dataFilm;
   return (
     <div className="name">
-      <h2>{data.dataFilm.name}</h2>
+      <h2>{name}</h2>
       <div className="info">
-        <span>{data.dataFilm.genre}</span>
+        <span>{genre}</span>
         <div className="vl" />
-        <span>{data.dataFilm.time}</span>
+        <span>{time}</span>
       </div>
       <div className="stars">
-        <span>{data.dataFilm.stars}</span>
+        <span>{stars}</span>
       </div>
     </div>
   );
+};
+
+Name.propTypes = {
+  dataFilm: PropTypes.shape({
+    name: PropTypes.string,
+    genre: PropTypes.string,
+    time: PropTypes.string,
+    stars: PropTypes.number,
+  }),
+};
+
+Name.defaultProps = {
+  dataFilm: {},
 };
 
 export default Name;

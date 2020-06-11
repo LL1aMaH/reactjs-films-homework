@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, func } from 'prop-types';
 import './button.scss';
 
 const Button = ({ text, onClick }) => (
@@ -6,5 +7,9 @@ const Button = ({ text, onClick }) => (
     {text}
   </button>
 );
+Button.propTypes = {
+  text: string.isRequired,
+  onClick: func.isRequired,
+};
 
 export default Button;

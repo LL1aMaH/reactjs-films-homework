@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Back /> <Back /> 1`] = `
+<div
+  className="background"
+>
+  <div
+    className="search-block"
+  >
+    <Search />
+  </div>
+  <div
+    className="bottom-block"
+  >
+    <div
+      className="name-block"
+    >
+      <Name
+        dataFilm={
+          Object {
+            "genre": "action",
+            "name": "Gentleman",
+            "stars": 10,
+            "time": "113 min",
+          }
+        }
+      />
+    </div>
+    <div
+      className="bottom-button-block"
+    >
+      <Button
+        onClick={[Function]}
+        text="Button1"
+      />
+      <Button
+        onClick={[Function]}
+        text="Button2"
+      />
+    </div>
+  </div>
+</div>
+`;

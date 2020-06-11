@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Name /> <Name /> 1`] = `
+<div
+  className="name"
+>
+  <h2>
+    Gentleman
+  </h2>
+  <div
+    className="info"
+  >
+    <span>
+      action
+    </span>
+    <div
+      className="vl"
+    />
+    <span>
+      113 min
+    </span>
+  </div>
+  <div
+    className="stars"
+  >
+    <span>
+      10
+    </span>
+  </div>
+</div>
+`;

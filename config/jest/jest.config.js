@@ -1,4 +1,5 @@
 module.exports = {
+  setupFiles: ['./setupTests.js'],
   rootDir: '../../src',
   collectCoverage: true,
   collectCoverageFrom: ['**/*.{js,jsx}'],
