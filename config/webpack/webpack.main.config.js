@@ -1,6 +1,7 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 module.exports = {
   module: {
@@ -26,7 +27,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-
+    new CaseSensitivePathsPlugin(),
     new CopyWebpackPlugin({
       patterns: [
         {
