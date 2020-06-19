@@ -6,7 +6,7 @@ import { shallow } from 'enzyme';
 import Button from '../Button';
 
 describe('<Button />', () => {
-  it('<Button />', () => {
+  it('<should be clicked and have right text/>', () => {
     const name = 'name';
     const fn = jest.fn();
     const wrapper = shallow(<Button text={name} onClick={fn} />);

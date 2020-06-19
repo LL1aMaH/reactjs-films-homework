@@ -1,6 +1,6 @@
 import React from 'react';
 import { string, func } from 'prop-types';
-import './button.scss';
+import './Button.scss';
 
 const Button = ({ text, onClick }) => (
   <button type="button" className="button" onClick={() => onClick(text)}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+
 import Back from './pages/Back';
 
 import './style.scss';

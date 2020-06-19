@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './name.scss';
+import './Name.scss';
 
 const Name = ({ dataFilm }) => {
   // eslint-disable-next-line
