@@ -2,6 +2,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = {
   module: {
@@ -26,6 +27,14 @@ module.exports = {
     splitChunks: { chunks: 'all' },
   },
   plugins: [
+    new FriendlyErrorsWebpackPlugin({
+      compilationSuccessInfo: {
+        messages: ['You application is running here http://localhost:3000'],
+      },
+      clearConsole: true,
+      additionalFormatters: [],
+      additionalTransformers: [],
+    }),
     new CleanWebpackPlugin(),
     new CaseSensitivePathsPlugin(),
     new CopyWebpackPlugin({
