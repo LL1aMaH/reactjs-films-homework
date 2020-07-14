@@ -10,12 +10,6 @@ import './style.scss';
 const App = () => (
   <Provider store={store}>
     <div>
-      <div className="container">
-        <h1>Homework</h1>
-      </div>
-      <div className="container">
-        <h1>part 2</h1>
-      </div>
       <Back />
     </div>
   </Provider>

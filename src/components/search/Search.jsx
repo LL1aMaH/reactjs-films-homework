@@ -1,8 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import './Search.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
+import './Search.scss';
 
 const Search = ({ onInput }) => (
   <div className="search">
@@ -10,7 +10,7 @@ const Search = ({ onInput }) => (
       placeholder="Search..."
       className="js-search"
       type="text"
-      onInput={() => onInput()}
+      onInput={onInput}
     />
     <div className="icon">
       <FontAwesomeIcon icon={faSearch} />
@@ -18,6 +18,4 @@ const Search = ({ onInput }) => (
   </div>
 );
 
-const mapStateToProps = (state) => state;
-
-export default connect(mapStateToProps, null)(Search);
+export default Search;

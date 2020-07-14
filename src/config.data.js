@@ -1,5 +1,5 @@
-const nameButton1 = 'Button1';
-const nameButton2 = 'Button2';
+const nameButton1 = 'Watch now';
+const nameButton2 = 'View info';
 const dataFilm = {
   name: 'Gentleman',
   genre: 'action',
