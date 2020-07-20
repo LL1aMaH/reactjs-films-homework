@@ -22,7 +22,7 @@ const Back = () => {
   };
   const { searchMovie } = useDebounce(
     useSelector((state) => state.search),
-    500,
+    500
   );
 
   const [results, setResults] = useState([]);
@@ -35,16 +35,20 @@ const Back = () => {
     const Key = 'f4f71b8883c5ec7ab8066b03fd5ab2f1';
     const queryString = `https://api.themoviedb.org/3/search/movie?api_key=${Key}&query=${search}`;
 
-    const result = await fetch(`${queryString}`, {
+    const data = await fetch(`${queryString}`, {
       headers: { accept: 'application/json' },
     });
-    const Data = await result.json();
-    console.log(`Data = ${Data}`);
-    return Data;
+    const res = await data.json();
+
+    setResults(res.results);
+    for (const key in results) {
+      console.log(key);
+      console.log(results[key]);
+    }
   }
 
   useEffect(() => {
-    if (searchMovie) {
+    if (searchMovie.length) {
       setIsSearching(true);
       searchCharacters(searchMovie);
       console.log(`searchMovie = ${searchMovie}`);
@@ -71,14 +75,11 @@ const Back = () => {
         </div>
       </div>
       {isSearching && <div className="searching">Searching ...</div>}
-      {results.map((result) => (
+      {/* {results.map((result) => (
         <div key={result.id}>
           <h4>{result.title}</h4>
-          {/* <img
-            src={``}
-          /> */}
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };
