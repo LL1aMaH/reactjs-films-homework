@@ -1,17 +1,16 @@
-// import React from 'react';
-
-function searchCharacters(search) {
-  const api = 'https://api.themoviedb.org/3/';
+async function searchCharacters(search, setResults) {
   const Key = 'f4f71b8883c5ec7ab8066b03fd5ab2f1';
-  const queryString = `movie/76341?api_key=${Key}&query=${search}`;
-  return fetch(`${api}${queryString}`, {
-    method: 'GET',
-  })
-    .then((r) => r.json())
-    .then((r) => r.data.results)
-    .catch((error) => {
-      console.error(error);
-      return [];
-    });
+  const queryString = `https://api.themoviedb.org/3/search/movie?api_key=${Key}&query=${search}`;
+
+  const data = await fetch(`${queryString}`, {
+    headers: { accept: 'application/json' },
+  });
+  const res = await data.json();
+  // for (const key in res.results) {
+  //   console.log(key);
+  //   console.log(res.results[key]);
+  // }
+
+  setResults(res.results);
 }
 export default searchCharacters;

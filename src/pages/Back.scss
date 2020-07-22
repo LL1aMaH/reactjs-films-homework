@@ -42,3 +42,21 @@
 .name-block {
   margin-left: 20px;
 }
+
+.posters{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  align-content: space-around;
+
+}
+
+.poster{
+  display: inline;
+  padding: 5% 5% 0 5%;
+}
+.poster img{
+  max-height: 300px;
+}
