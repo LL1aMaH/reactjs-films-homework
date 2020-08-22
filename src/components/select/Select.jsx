@@ -3,7 +3,7 @@ import { typeGenre } from '../../config.data';
 import './Select.scss';
 
 const Select = ({ isClearable, onChange }) => {
-  const [state, setState] = useState();
+  const [state, setState] = useState('Genre');
 
   useEffect(() => {
     setState(isClearable);
@@ -12,11 +12,16 @@ const Select = ({ isClearable, onChange }) => {
   console.log(`state = ${state}`);
 
   return (
-    <select defaultValue="Genre" onChange={onChange} className="select">
-      <option disabled>Genre</option>
+    <select
+      // defaultValue={state}
+      onChange={onChange}
+      className="select"
+      value={state}
+    >
+      <option disabled>{state}</option>
       {Object.keys(typeGenre).map((genre) => (
         <option value={genre} key={genre}>
-          {genre[0].toUpperCase() + genre.slice(1)}
+          {genre}
         </option>
       ))}
     </select>

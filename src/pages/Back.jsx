@@ -5,7 +5,7 @@ import Search from '../components/search';
 import Button from '../components/button';
 import Name from '../components/name';
 import Select from '../components/select';
-import { getMovies } from '../redux/actions/actions';
+import { getMovies, selectStart } from '../redux/actions/actions';
 import useDebounce from '../useDebounce';
 import './Back.scss';
 import logo from '../public/Movie_040311_3.jpg';
@@ -41,6 +41,11 @@ const Back = () => {
     }
   }, [debauncedValue]);
 
+  const handleChange = (event) => {
+    dispatch(getMovies('genre', typeGenre[event.target.value]));
+    dispatch(selectStart(event.target.value));
+  };
+
   return (
     <div>
       <div className="background">
@@ -62,12 +67,7 @@ const Back = () => {
         <Button onClick={() => dispatch(getMovies('popular'))}>Popular</Button>
         <Button onClick={() => dispatch(getMovies('upcoming'))}>Comming Soon</Button>
 
-        <Select
-          isClearable={isClearable}
-          onChange={() =>
-            dispatch(getMovies('genre', typeGenre[event.target.value]))
-          }
-        />
+        <Select isClearable={isClearable} onChange={handleChange} />
       </div>
       {/* {isLoading && (
         <div className="searching">
@@ -75,7 +75,7 @@ const Back = () => {
         </div>
       )} */}
       <div className="posters">
-        {movies && movies.length ? (
+        {movies.length ? (
           movies.map((result) => (
             <div className="poster" key={result.id}>
               {(result.poster_path && (

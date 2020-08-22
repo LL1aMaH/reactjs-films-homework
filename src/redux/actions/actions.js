@@ -18,8 +18,9 @@ const selectRestart = () => ({
   type: 'SELECT_RESTART',
 });
 
-const selectStart = () => ({
+export const selectStart = (payload) => ({
   type: 'SELECT_START',
+  payload,
 });
 
 const getURL = (searchBy, query) => {
@@ -36,7 +37,6 @@ const getURL = (searchBy, query) => {
 // eslint-disable-next-line
 export const getMovies = (searchBy = 'top', query) => async (dispatch) => {
   const [queryString, select] = getURL(searchBy, query);
-  // console.log(select);
   select ? dispatch(selectStart()) : dispatch(selectRestart());
   dispatch(fetchMovies());
   try {
