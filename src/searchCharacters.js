@@ -6,10 +6,6 @@ async function searchCharacters(search, setResults) {
     headers: { accept: 'application/json' },
   });
   const res = await data.json();
-  // for (const key in res.results) {
-  //   console.log(key);
-  //   console.log(res.results[key]);
-  // }
 
   setResults(res.results);
 }

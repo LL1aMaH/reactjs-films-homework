@@ -9,7 +9,7 @@
   width: 200px;
   cursor: pointer;
   min-height: 30px;
-  -webkit-transition-duration: 0.4s; /* Safari */
+  -webkit-transition-duration: 0.4s; /* Safari */ //TODO use webpack autoprefixer
   transition-duration: 0.4s;
   &:hover {
     background-color: #00bfff;

@@ -46,17 +46,36 @@
 .posters{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
   align-content: space-around;
-
+  padding: 20px;
 }
 
 .poster{
-  display: inline;
-  padding: 5% 5% 0 5%;
+  display: flex;
+  flex-direction: column;
+  background-color: #c8c8c8;
+  margin: 20px;
+  max-width: 250px;
+  min-height: 480px;
 }
+
 .poster img{
-  max-height: 300px;
+  max-width: 250px;
+  height: auto;
+  min-height: 375px
+}
+
+.poster span{
+  overflow-wrap: break-word;
+  color: white;
+  text-align: center;
+  margin: 20px;
+  font-size: medium;
+}
+.buttons button{
+  border: none;
+  color: #00bfff;
 }

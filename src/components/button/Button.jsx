@@ -1,14 +1,14 @@
 import React from 'react';
-import { string, func } from 'prop-types';
+import { func, node } from 'prop-types';
 import './Button.scss';
 
-const Button = ({ text, onClick }) => (
-  <button type="button" className="button" onClick={() => onClick(text)}>
-    {text}
+const Button = ({ onClick, children }) => (
+  <button type="button" className="button" onClick={onClick}>
+    {children}
   </button>
 );
 Button.propTypes = {
-  text: string.isRequired,
+  children: node.isRequired,
   onClick: func.isRequired,
 };
 
