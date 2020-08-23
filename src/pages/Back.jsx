@@ -5,7 +5,7 @@ import Search from '../components/search';
 import Button from '../components/button';
 import Name from '../components/name';
 import Select from '../components/select';
-import { getMovies, selectStart } from '../redux/actions/actions';
+import { getMovies, selectStart, getGenreList } from '../redux/actions/actions';
 import useDebounce from '../useDebounce';
 import './Back.scss';
 import logo from '../public/Movie_040311_3.jpg';
@@ -16,15 +16,13 @@ import {
   nameButton1,
   nameButton2,
   dataFilm,
-  typeGenre,
 } from '../config.data'; // data for test
 
 const Back = () => {
   const dispatch = useDispatch();
   const { movies, isLoading } = useSelector((state) => state.search);
   const [searchTerm, setSearchTerm] = useState('');
-  const { isClearable } = useSelector((state) => state.search);
-
+  const genreList = useSelector((state) => state.search.genreList);
   const debauncedValue = useDebounce(searchTerm, 500);
 
   const handleClick = (text) => {
@@ -41,9 +39,13 @@ const Back = () => {
     }
   }, [debauncedValue]);
 
+  useEffect(() => {
+    dispatch(getGenreList());
+  }, []);
+
   const handleChange = (event) => {
-    dispatch(getMovies('genre', typeGenre[event.target.value]));
-    dispatch(selectStart(event.target.value));
+    dispatch(getMovies('genre', genreList[event.target.value].id));
+    dispatch(selectStart(genreList[event.target.value].name));
   };
 
   return (
@@ -67,7 +69,7 @@ const Back = () => {
         <Button onClick={() => dispatch(getMovies('popular'))}>Popular</Button>
         <Button onClick={() => dispatch(getMovies('upcoming'))}>Comming Soon</Button>
 
-        <Select isClearable={isClearable} onChange={handleChange} />
+        <Select onChange={handleChange} />
       </div>
       {/* {isLoading && (
         <div className="searching">

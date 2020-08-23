@@ -23,26 +23,41 @@ export const selectStart = (payload) => ({
   payload,
 });
 
+const fetchGenreList = (payload) => ({
+  type: 'GENRE_LIST',
+  payload,
+});
+
 const getURL = (searchBy, query) => {
   let address = '';
-  let select = false;
+
   if (searchBy !== 'genre') {
     address = `https://api.themoviedb.org/3${queryTypes[searchBy]}?api_key=${Key}&language=en-US&page=1&query=${query}`;
   } else {
     address = `https://api.themoviedb.org/3/discover/movie?api_key=${Key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${query}`;
-    select = true;
   }
-  return [address, select];
+  return address;
 };
 // eslint-disable-next-line
 export const getMovies = (searchBy = 'top', query) => async (dispatch) => {
-  const [queryString, select] = getURL(searchBy, query);
-  select ? dispatch(selectStart()) : dispatch(selectRestart());
+  const queryString = getURL(searchBy, query);
+  if (searchBy !== 'genre') dispatch(selectRestart());
   dispatch(fetchMovies());
   try {
     const response = await fetch(queryString);
     const movies = await response.json();
     dispatch(fetchSuccess(movies));
+  } catch (error) {
+    dispatch(fetchError(error));
+  }
+};
+
+export const getGenreList = () => async (dispatch) => {
+  const data = getURL('genreList');
+  try {
+    const response = await fetch(data);
+    const genreList = await response.json();
+    dispatch(fetchGenreList(genreList.genres));
   } catch (error) {
     dispatch(fetchError(error));
   }

@@ -1,6 +1,7 @@
 const initialState = {
   movies: [],
-  isClearable: 'Genre',
+  isClearable: 'genre',
+  genreList: [],
 };
 
 const searchReducer = (state = initialState, action) => {
@@ -27,12 +28,17 @@ const searchReducer = (state = initialState, action) => {
     case 'SELECT_RESTART':
       return {
         ...state,
-        isClearable: 'Genre',
+        isClearable: 'genre',
       };
     case 'SELECT_START':
       return {
         ...state,
         isClearable: action.payload,
+      };
+    case 'GENRE_LIST':
+      return {
+        ...state,
+        genreList: action.payload,
       };
     default:
       return state;

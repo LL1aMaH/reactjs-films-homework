@@ -1,7 +1,8 @@
 .background {
   background-image: url('../public/cover-image.jpg');
   background-size: cover;
-  height: 500px;
+  min-height: 400px;
+  height: auto;
   min-width: 100%;
   margin: 0 auto;
   display: flex;
