@@ -1,0 +1,44 @@
+.background {
+  background-size: cover;
+  min-height: 400px;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  padding: 0 0 10px 0;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.bottom-block {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.bottom-button-block {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+}
+
+.search {
+  display: flex;
+  margin-top: 15px;
+  margin-right: 20px;
+}
+
+.button {
+  margin-right: 20px;
+}
+
+.search-block {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.name-block {
+  margin-left: 20px;
+}

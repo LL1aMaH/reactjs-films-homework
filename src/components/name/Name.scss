@@ -1,13 +1,8 @@
-h2 {
+.title {
   color: white;
   font-size: 35px;
   font-weight: 600;
   margin-bottom: 0;
-}
-
-span {
-  color: white;
-  font-size: 25px;
 }
 
 .name {
@@ -17,10 +12,15 @@ span {
 
 .info {
   display: flex;
+  color: white;
+  font-size: 25px;
 }
 
-.vl {
-  border-left: 2px solid white;
-  margin-left: 10px;
-  margin-right: 10px;
+.stars{
+  color: white;
+  font-size: 20px;
+}
+
+.filmGenre {
+  padding-right: 15px;
 }

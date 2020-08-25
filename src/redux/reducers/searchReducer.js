@@ -1,6 +1,6 @@
 const initialState = {
   movies: [],
-  isClearable: 'genre',
+  defaultSelectedGenre: 'genre',
   genreList: [],
 };
 
@@ -28,12 +28,12 @@ const searchReducer = (state = initialState, action) => {
     case 'SELECT_RESTART':
       return {
         ...state,
-        isClearable: 'genre',
+        defaultSelectedGenre: 'genre',
       };
     case 'SELECT_START':
       return {
         ...state,
-        isClearable: action.payload,
+        defaultSelectedGenre: action.payload,
       };
     case 'GENRE_LIST':
       return {

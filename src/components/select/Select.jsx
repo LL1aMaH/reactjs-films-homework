@@ -4,18 +4,19 @@ import { useSelector } from 'react-redux';
 import './Select.scss';
 
 const Select = ({ onChange }) => {
-  const isClearable = useSelector((state) => state.search.isClearable);
+  const { defaultSelectedGenre, genreList } = useSelector((state) => state.search);
 
-  const genreList = useSelector((state) => state.search.genreList);
-  const [stateSelector, setStateSelector] = useState('genre');
+  const [stateSelector, setStateSelector] = useState('');
 
   useEffect(() => {
-    setStateSelector(isClearable);
-  }, [isClearable]);
+    setStateSelector(defaultSelectedGenre);
+  }, [defaultSelectedGenre]);
 
   return (
     <select onChange={onChange} className="select" value={stateSelector}>
-      <option disabled>{stateSelector}</option>
+      <option disabled hidden>
+        {stateSelector}
+      </option>
       {genreList.map((genre, i) => (
         <option value={i} key={genre.id} name={genre.name}>
           {genre.name}

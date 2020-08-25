@@ -1,0 +1,50 @@
+.poster{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: gray;
+  margin: 20px;
+  width: 250px;
+  height: 480px;
+  border-radius: 10px;
+}
+
+.poster img{
+  max-width: 250px;
+  height: auto;
+  min-height: 375px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.FilmCardInfo{
+  display: flex;
+  justify-content: space-between;
+}
+.FilmCardTitle{
+  overflow-wrap: break-word;
+  color: white;
+  text-align: left;
+  margin: 20px;
+  margin-top: 10px;
+  font-size: medium;
+}
+.FilmCardRating{
+  margin-top: 20px;
+  margin-right: 20px;
+  color: blue;
+  border: 2px solid blue;
+  padding: 10px;
+  height: fit-content;
+  border-radius: 10px;
+}
+.filmgenres{
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.filmgenre {
+  padding-left: 15px;
+  color: white;
+  font-size: 12px;
+}

@@ -2,35 +2,35 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Name.scss';
 
-const Name = ({ dataFilm }) => {
-  // eslint-disable-next-line
-  const { name, genre, time, stars } = dataFilm;
-  return (
-    <div className="name">
-      <h2>{name}</h2>
-      <div className="info">
-        <span>{genre}</span>
-        <div className="vl" />
-        <span>{time}</span>
+const Name = ({ dataFilm, genreFilm }) => (
+  <div>
+    {dataFilm && (
+      <div className="name">
+        <div className="title">{dataFilm.title}</div>
+        <div className="info">
+          {genreFilm.map((result) => (
+            <div key={result} className="filmGenre">
+              {result}
+            </div>
+          ))}
+        </div>
+        <div className="stars">
+          <span>{dataFilm.vote_average}</span>
+        </div>
       </div>
-      <div className="stars">
-        <span>{stars}</span>
-      </div>
-    </div>
-  );
-};
-
+    )}
+  </div>
+);
 Name.propTypes = {
   dataFilm: PropTypes.shape({
-    name: PropTypes.string,
-    genre: PropTypes.string,
-    time: PropTypes.string,
-    stars: PropTypes.number,
+    title: PropTypes.string,
+    vote_average: PropTypes.number,
   }),
 };
 
 Name.defaultProps = {
   dataFilm: {},
+  genreFilm: [],
 };
 
 export default Name;
