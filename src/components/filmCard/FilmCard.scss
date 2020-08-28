@@ -7,6 +7,11 @@
   width: 250px;
   height: 480px;
   border-radius: 10px;
+  &:hover{
+    .posterHover{
+      display: flex;
+    }
+  }
 }
 
 .poster img{
@@ -17,11 +22,11 @@
   border-top-right-radius: 10px;
 }
 
-.FilmCardInfo{
+.filmCardInfo{
   display: flex;
   justify-content: space-between;
 }
-.FilmCardTitle{
+.filmCardTitle{
   overflow-wrap: break-word;
   color: white;
   text-align: left;
@@ -29,7 +34,7 @@
   margin-top: 10px;
   font-size: medium;
 }
-.FilmCardRating{
+.filmCardRating{
   margin-top: 20px;
   margin-right: 20px;
   color: blue;
@@ -48,3 +53,13 @@
   color: white;
   font-size: 12px;
 }
+
+
+
+.posterHover{
+  display: none;
+}
+
+// .posterHoverDetails{
+//   display: none;
+// }

@@ -1,14 +1,11 @@
-import { queryTypes, Key } from '../../config.data';
+/* eslint-disable import/prefer-default-export */
+import { queryTypes, key } from '../../config.data';
 
-const getURL = (searchBy, query) => {
-  let address = '';
+const defaultURL = 'https://api.themoviedb.org/3';
+const languageURL = 'language=en-US';
 
-  if (searchBy !== 'genre') {
-    address = `https://api.themoviedb.org/3${queryTypes[searchBy]}?api_key=${Key}&language=en-US&page=1&query=${query}`;
-  } else {
-    address = `https://api.themoviedb.org/3/discover/movie?api_key=${Key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${query}`;
-  }
+export const getURL = (searchBy, query) => {
+  // eslint-disable-next-line
+  const address = `${defaultURL}${queryTypes[searchBy]}`+(searchBy === 'movie' ? `/${query}?` : '?')+`api_key=${key}&${languageURL}`+(searchBy !== 'genre' ? `&page=1&query=${query}` : ((searchBy === 'movie') ? '' : `&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${query}`));
   return address;
 };
-
-export { getURL };

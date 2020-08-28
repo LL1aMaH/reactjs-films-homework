@@ -1,16 +1,17 @@
+/* eslint-disable import/no-unresolved */
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Name.scss';
+import './MovieInfo.scss';
 
-const Name = ({ dataFilm, genreFilm }) => (
+const MovieInfo = ({ dataFilm, genreFilm }) => (
   <div>
     {dataFilm && (
       <div className="name">
         <div className="title">{dataFilm.title}</div>
         <div className="info">
           {genreFilm.map((result) => (
-            <div key={result} className="filmGenre">
-              {result}
+            <div key={result.id} className="filmGenre">
+              {result.name}
             </div>
           ))}
         </div>
@@ -21,16 +22,16 @@ const Name = ({ dataFilm, genreFilm }) => (
     )}
   </div>
 );
-Name.propTypes = {
+MovieInfo.propTypes = {
   dataFilm: PropTypes.shape({
     title: PropTypes.string,
     vote_average: PropTypes.number,
   }),
 };
 
-Name.defaultProps = {
+MovieInfo.defaultProps = {
   dataFilm: {},
   genreFilm: [],
 };
 
-export default Name;
+export default MovieInfo;

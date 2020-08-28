@@ -1,9 +1,10 @@
+/* eslint-disable import/no-unresolved */
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import './Select.scss';
 
-const Select = ({ onChange }) => {
+const Select = ({ onChange, style }) => {
   const { defaultSelectedGenre, genreList } = useSelector((state) => state.search);
 
   const [stateSelector, setStateSelector] = useState('');
@@ -13,7 +14,12 @@ const Select = ({ onChange }) => {
   }, [defaultSelectedGenre]);
 
   return (
-    <select onChange={onChange} className="select" value={stateSelector}>
+    <select
+      onChange={onChange}
+      className="select"
+      value={stateSelector}
+      style={style}
+    >
       <option disabled hidden>
         {stateSelector}
       </option>

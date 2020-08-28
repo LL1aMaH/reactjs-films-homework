@@ -1,0 +1,79 @@
+
+.posterHoverDetails{
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  min-height: 375px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  button {
+    margin-right: 0;
+  }
+}
+.posterHoverDetailsIcon{
+  color: white ;
+  padding-top: 7px;
+  padding-left: 7px;
+  align-self: baseline;
+}
+.posterHoverDetailsNameRating {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  align-self: stretch;
+  margin-top: 20px;
+}
+.posterHoverDetailsName{
+  color: white;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 15px;
+}
+.posterHoverDetailsRating{
+  color: #00bfff;
+  margin-right: 15px;
+  border: 2px solid blue;
+  padding: 10px;
+  
+  border-radius: 10px;
+}
+.posterHoverDetailsGenres{
+  margin-top: 20px;
+  align-self: flex-start;
+  color: #00bfff;
+  font-size: 15px;
+  display: flex;
+}
+.posterHoverDetailsGenresFilm{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.posterHoverDetailsOverview{
+  margin-top: 20px;
+  color: white;
+  padding: 10px;
+  max-height: 250px;
+  overflow: hidden;
+  p {
+    display: -webkit-box;
+    -webkit-line-clamp: 12; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.posterHoverDetailButton{
+  margin-top: auto;
+  margin-bottom: 15px;
+  button{
+    background-color: #00bfff;
+    border: none;
+    color: #fff;
+    &:hover{
+      background-color: #0099cc;
+    }
+  }
+}

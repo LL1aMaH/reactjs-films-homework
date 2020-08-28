@@ -1,35 +1,36 @@
+/* eslint-disable import/no-unresolved */
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import Search from '../search';
-import Button from '../button';
-import Name from '../name';
-import useDebounce from '../../useDebounce';
+import Search from '../Search';
+import Button from '../Button';
+import MovieInfo from '../MovieInfo';
+import useDebounce from '../../hooks/useDebounce';
 import { getMovies } from '../../redux/actions/actions';
-import { getGenreFilm } from '../../redux/helper/getGenreFilm';
 
 import './MainMovie.scss';
-
-// eslint-disable-next-line
-import {
-  nameButton1,
-  nameButton2,
-} from '../../config.data'; // data for test
-
 
 const MainMovie = () => {
   const dispatch = useDispatch();
 
   const [searchTerm, setSearchTerm] = useState('');
 
+  const [styleMainInfo, setStyleMainInfo] = useState({ display: 'none' });
+
   const debauncedValue = useDebounce(searchTerm, 500);
+
+  // eslint-disable-next-line
+  const { previousCategories, defaultSelectedGenre, mainFilm } = useSelector((state) => state.search);
+
   useEffect(() => {
     dispatch(getMovies());
   }, []);
 
   useEffect(() => {
     if (searchTerm) {
-      dispatch(getMovies('search', searchTerm));
+      dispatch(getMovies('search', searchTerm, defaultSelectedGenre));
+    } else {
+      dispatch(getMovies(previousCategories));
     }
   }, [debauncedValue]);
 
@@ -37,40 +38,34 @@ const MainMovie = () => {
     console.log(text[text.length - 1]);
   };
 
-  const { movies, genreList } = useSelector((state) => state.search);
-  const [mainFilm, setMainFilm] = useState('');
-  const [mainFilmGenre, setMainFilmGenre] = useState('');
-
-  useEffect(() => {
-    setMainFilm(movies[0]);
-  }, [movies]);
-
-  useEffect(() => {
-    setMainFilmGenre(getGenreFilm(mainFilm, genreList));
-  }, [mainFilm]);
-
   return (
     <div>
-      {mainFilm && (
+      {mainFilm.backdrop_path && (
         <div
           className="background"
           style={{
-            backgroundImage:
-              'url(' +
-              `https://image.tmdb.org/t/p/w500${mainFilm.backdrop_path}` +
-              ')',
+            backgroundImage: `url(https://image.tmdb.org/t/p/w1280${mainFilm.backdrop_path})`,
           }}
         >
-          <div className="search-block">
+          <div className="searchBlock">
             <Search onInput={(e) => setSearchTerm(e.target.value.trim())} />
           </div>
-          <div className="bottom-block">
-            <div className="name-block">
-              <Name dataFilm={mainFilm} genreFilm={mainFilmGenre} />
+          <div className="mainMovieInfo" style={styleMainInfo}>
+            <p>{mainFilm.overview}</p>
+          </div>
+          <div className="bottomBlock">
+            <div className="nameBlock">
+              <MovieInfo dataFilm={mainFilm} genreFilm={mainFilm.genres} />
             </div>
-            <div className="bottom-button-block">
-              <Button onClick={handleClick}>{nameButton1}</Button>
-              <Button onClick={handleClick}>{nameButton2}</Button>
+            <div className="bottomButtonBlock">
+              <Button onClick={handleClick}>Watch now</Button>
+              <Button
+                onClick={() =>
+                  // eslint-disable-next-line
+                  setStyleMainInfo(styleMainInfo.display ? {} : { display: 'none' })}
+              >
+                View info
+              </Button>
             </div>
           </div>
         </div>

@@ -1,0 +1,18 @@
+.posterHover{
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  width: inherit;
+  height: auto;
+  min-height: 375px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  button {
+    margin-right: 0;
+  }
+}
+.posterHoverIcon {
+  position: relative;
+  color: #fff;
+}

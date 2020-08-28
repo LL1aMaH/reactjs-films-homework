@@ -1,6 +1,3 @@
-const nameButton1 = 'Watch now';
-const nameButton2 = 'View info';
-
 const queryTypes = {
   top: '/movie/top_rated',
   popular: '/movie/popular',
@@ -8,10 +5,18 @@ const queryTypes = {
   search: '/search/movie',
   genre: '/discover/movie',
   genreList: '/genre/movie/list',
+  movie: '/movie',
 };
 
-const Key = 'f4f71b8883c5ec7ab8066b03fd5ab2f1';
+const buttonCategories = ['top', 'popular', 'upcoming'];
+
+const key = 'f4f71b8883c5ec7ab8066b03fd5ab2f1';
+const activeButtonStyle = {
+  backgroundColor: '#00bfff',
+  borderColor: '#00bfff',
+  color: '#fff',
+};
 // eslint-disable-next-line
 export {
-  nameButton1, nameButton2, queryTypes, Key,
+  queryTypes, key, buttonCategories, activeButtonStyle,
 };

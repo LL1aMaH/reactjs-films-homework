@@ -2,4 +2,11 @@
   border: none;
   color: #00bfff;
   margin-right: 0;
+  text-transform: capitalize;
+  &:active {
+    background-color: #00bfff;
+    border-color: #00bfff;
+    color: #fff;
+  }
 }
+
