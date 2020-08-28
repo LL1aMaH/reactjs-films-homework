@@ -1,7 +1,7 @@
 .poster{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  // justify-content: space-between;
   background-color: gray;
   margin: 20px;
   width: 250px;
@@ -22,20 +22,33 @@
   border-top-right-radius: 10px;
 }
 
+.filmCard{
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
 .filmCardInfo{
   display: flex;
   justify-content: space-between;
+  margin-top:10px;
 }
 .filmCardTitle{
-  overflow-wrap: break-word;
   color: white;
   text-align: left;
   margin: 20px;
   margin-top: 10px;
   font-size: medium;
+  display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .filmCardRating{
-  margin-top: 20px;
+  
   margin-right: 20px;
   color: blue;
   border: 2px solid blue;
@@ -45,7 +58,7 @@
 }
 .filmgenres{
   display: flex;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .filmgenre {

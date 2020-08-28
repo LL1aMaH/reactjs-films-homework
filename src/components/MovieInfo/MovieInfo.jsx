@@ -2,7 +2,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './MovieInfo.scss';
-import MovieInfoRating from '../MovieInfoRating/MovieInfoRating.js';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
+import { faStar as fasStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
+
+const getAverage = (average) => {
+  const fullAverage = average / 2;
+  const truncatedAverage = Math.trunc(fullAverage);
+  return Array(5)
+    .fill()
+    .map((star, i) => {
+      const key = i;
+      if (i + 1 <= truncatedAverage) {
+        return <FontAwesomeIcon icon={fasStar} key={key} size="lg" />;
+      }
+      if (i + 1 - fullAverage < 1) {
+        return <FontAwesomeIcon icon={faStarHalfAlt} key={key} size="lg" />;
+      }
+      return <FontAwesomeIcon icon={farStar} key={key} size="lg" />;
+    });
+};
 
 const MovieInfo = ({ dataFilm, genreFilm }) => (
   <div>
@@ -17,7 +37,7 @@ const MovieInfo = ({ dataFilm, genreFilm }) => (
           ))}
         </div>
         <div className="stars">
-          <MovieInfoRating stars={dataFilm.vote_average} />
+          <div>{getAverage(dataFilm.vote_average)}</div>
           <span>{dataFilm.vote_average}</span>
         </div>
       </div>
@@ -29,6 +49,12 @@ MovieInfo.propTypes = {
     title: PropTypes.string,
     vote_average: PropTypes.number,
   }),
+  genreFilm: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+    }),
+  ),
 };
 
 MovieInfo.defaultProps = {

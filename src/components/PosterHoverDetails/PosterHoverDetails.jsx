@@ -4,9 +4,7 @@ import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import Button from '../Button';
 import './PosterHoverDetails.scss';
 
-const PosterHoverDetails = ({
- film, arrayGerres, style, onClick 
-}) => {
+const PosterHoverDetails = ({ film, arrayGerres, style, onClick }) => {
   const data = '';
 
   return (
