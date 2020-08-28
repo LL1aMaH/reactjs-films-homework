@@ -7,7 +7,6 @@ import { getMovies, selectStart, getGenreList } from '../../redux/actions/action
 import { buttonCategories, activeButtonStyle } from '../../config.data';
 
 import './Navbar.scss';
-import { array } from 'prop-types';
 
 const Navbar = () => {
   const dispatch = useDispatch();

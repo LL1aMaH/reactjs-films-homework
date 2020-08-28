@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './MovieInfo.scss';
+import MovieInfoRating from '../MovieInfoRating/MovieInfoRating.js';
 
 const MovieInfo = ({ dataFilm, genreFilm }) => (
   <div>
@@ -16,6 +17,7 @@ const MovieInfo = ({ dataFilm, genreFilm }) => (
           ))}
         </div>
         <div className="stars">
+          <MovieInfoRating stars={dataFilm.vote_average} />
           <span>{dataFilm.vote_average}</span>
         </div>
       </div>
